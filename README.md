@@ -34,5 +34,5 @@ This is a log tool for simply create info/error/warn/test log.
 
 > [!NOTE]
 > The executable file is now built for:
-> - Linux
-> - Windows
+> - Linux-amd64
+> - Windows-amd64
