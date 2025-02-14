@@ -26,6 +26,10 @@ var testCases = []struct {
 		"TEST_TEST",
 		"this is a test test",
 	},
+	{
+		"TEST_DEBUG",
+		"this is a debug test",
+	},
 }
 
 func TestInfo(t *testing.T) {
@@ -39,6 +43,8 @@ func TestInfo(t *testing.T) {
 			loggergo.Warn(testCase.tag, testCase.msg)
 		case "TEST_TEST":
 			loggergo.Test(testCase.tag, testCase.msg)
+		case "TEST_DEBUG":
+			loggergo.Debug(testCase.tag, testCase.msg)
 		}
 	}
 }
