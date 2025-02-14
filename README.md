@@ -61,6 +61,8 @@ This is a log tool for create info/error/warn/test/debug log.
 
 1. Download the executable file from [release](https://github.com/Alonza0314/logger-go/releases).
 
+2. Use the executable file directly.
+
     Example:
 
     ```bash
