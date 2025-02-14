@@ -17,3 +17,7 @@ func Warn(tag, msg string) {
 func Test(tag, msg string) {
 	log.Printf("%s[TEST]%s [%s]%s %s\n", COLOR_GREEN, COLOR_BLUE, tag, COLOR_RESET, msg)
 }
+
+func Debug(tag, msg string) {
+	log.Printf("%s[DBUG]%s [%s]%s %s\n", COLOR_PURPLE, COLOR_BLUE, tag, COLOR_RESET, msg)
+}
