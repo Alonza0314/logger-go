@@ -32,7 +32,7 @@ var testCases = []struct {
 	},
 }
 
-func TestInfo(t *testing.T) {
+func TestLogger(t *testing.T) {
 	for _, testCase := range testCases {
 		switch testCase.tag {
 		case "TEST_INFO":
