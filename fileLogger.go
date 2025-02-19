@@ -7,13 +7,13 @@ import (
 	"path/filepath"
 )
 
-type fileLogger struct {
+type FileLogger struct {
 	file   *os.File
 	logger *log.Logger
 	color  bool
 }
 
-func NewFileLogger(loggerFilePath string, opts ...Option) *fileLogger {
+func NewFileLogger(loggerFilePath string, opts ...Option) *FileLogger {
 	options := &options{
 		flag:  DEFAULT_FLAG,
 		perm:  DEFAULT_PERM,
@@ -42,17 +42,18 @@ func NewFileLogger(loggerFilePath string, opts ...Option) *fileLogger {
 		panic(err)
 	}
 	logger := log.New(file, "", log.Ldate|log.Ltime)
-	return &fileLogger{
+	return &FileLogger{
 		file:   file,
 		logger: logger,
+		color:  options.color,
 	}
 }
 
-func (l *fileLogger) Close() {
+func (l *FileLogger) Close() {
 	l.file.Close()
 }
 
-func (l *fileLogger) Info(tag string, msg string) {
+func (l *FileLogger) Info(tag string, msg string) {
 	if l.color {
 		l.logger.Printf("%s[INFO]%s [%s]%s %s\n", COLOR_BLUE, COLOR_BLUE, tag, COLOR_RESET, msg)
 	} else {
@@ -60,7 +61,7 @@ func (l *fileLogger) Info(tag string, msg string) {
 	}
 }
 
-func (l *fileLogger) Error(tag string, msg string) {
+func (l *FileLogger) Error(tag string, msg string) {
 	if l.color {
 		l.logger.Printf("%s[EROR]%s [%s]%s %s\n", COLOR_RED, COLOR_BLUE, tag, COLOR_RESET, msg)
 	} else {
@@ -68,7 +69,7 @@ func (l *fileLogger) Error(tag string, msg string) {
 	}
 }
 
-func (l *fileLogger) Warn(tag string, msg string) {
+func (l *FileLogger) Warn(tag string, msg string) {
 	if l.color {
 		l.logger.Printf("%s[WARN]%s [%s]%s %s\n", COLOR_YELLOW, COLOR_BLUE, tag, COLOR_RESET, msg)
 	} else {
@@ -76,7 +77,7 @@ func (l *fileLogger) Warn(tag string, msg string) {
 	}
 }
 
-func (l *fileLogger) Test(tag string, msg string) {
+func (l *FileLogger) Test(tag string, msg string) {
 	if l.color {
 		l.logger.Printf("%s[TEST]%s [%s]%s %s\n", COLOR_GREEN, COLOR_BLUE, tag, COLOR_RESET, msg)
 	} else {
@@ -84,7 +85,7 @@ func (l *fileLogger) Test(tag string, msg string) {
 	}
 }
 
-func (l *fileLogger) Debug(tag string, msg string) {
+func (l *FileLogger) Debug(tag string, msg string) {
 	if l.color {
 		l.logger.Printf("%s[DBUG]%s [%s]%s %s\n", COLOR_PURPLE, COLOR_BLUE, tag, COLOR_RESET, msg)
 	} else {
