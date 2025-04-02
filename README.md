@@ -4,7 +4,7 @@ This is a log tool for create info/error/warn/test/debug log.
 
 ## Usage
 
-### logger in terminal
+### logger in STD_OUT
 
 1. Import the logger-go package in your project.
 
