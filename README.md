@@ -75,6 +75,4 @@ This is a log tool for create info/error/warn/test/debug log.
 > [!NOTE]
 > The executable file is now built for:
 > - Linux-amd64
-> - Windows-amd64
-> - Darwin-amd64
 > - Darwin-arm64
