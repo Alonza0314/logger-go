@@ -49,9 +49,21 @@ var testCmd = &cobra.Command{
 	},
 }
 
+var debugCmd = &cobra.Command{
+	Use:     "debug",
+	Short:   "Create a debug log.",
+	Long:    "Use this command to create a debug log.",
+	Example: `logger-go debug [tag] [message]`,
+	Args:    cobra.ExactArgs(2),
+	Run: func(cmd *cobra.Command, args []string) {
+		loggergo.Debug(args[0], args[1])
+	},
+}
+
 func init() {
 	rootCmd.AddCommand(infoCmd)
 	rootCmd.AddCommand(errorCmd)
 	rootCmd.AddCommand(warnCmd)
 	rootCmd.AddCommand(testCmd)
+	rootCmd.AddCommand(debugCmd)
 }
