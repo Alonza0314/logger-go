@@ -50,7 +50,9 @@ func NewFileLogger(loggerFilePath string, opts ...Option) *FileLogger {
 }
 
 func (l *FileLogger) Close() {
-	l.file.Close()
+	if err := l.file.Close(); err != nil {
+		panic(err)
+	}
 }
 
 func (l *FileLogger) Info(tag string, msg string) {
