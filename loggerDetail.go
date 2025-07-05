@@ -15,10 +15,7 @@ type LoggerImplementation struct {
 }
 
 func (l *LoggerImplementation) checkLevel(level util.LogLevel) bool {
-	if l.level >= level {
-		return true
-	}
-	return false
+	return l.level >= level
 }
 
 func (l *LoggerImplementation) getTags() string {
