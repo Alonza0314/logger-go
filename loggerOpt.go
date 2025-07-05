@@ -21,9 +21,3 @@ func WithPerm(perm os.FileMode) Option {
 		o.perm = perm
 	}
 }
-
-func WithColor(color bool) Option {
-	return func(o *options) {
-		o.color = color
-	}
-}
