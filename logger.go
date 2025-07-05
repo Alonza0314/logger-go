@@ -75,6 +75,8 @@ func (l *Logger) WithTags(tags ...string) model.LoggerInterface {
 	}
 }
 
-func (l *Logger) Close() error {
-	return l.file.Close()
+func (l *Logger) Close() {
+	if err := l.file.Close(); err != nil {
+		panic(err)
+	}
 }
