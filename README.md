@@ -1,10 +1,10 @@
 # logger-go
 
-This is a log tool for create info/error/warn/test/debug log.
+This is a log tool for create error/warn/info/debug/trace/test log.
 
 ## Usage
 
-### logger in STD_OUT
+### logger directly
 
 1. Import the logger-go package in your project.
 
@@ -14,8 +14,6 @@ This is a log tool for create info/error/warn/test/debug log.
 
 2. Use the logger in your project.
 
-    Example:
-
     ```go
     loggergo.Info("tag", "message")
     loggergo.Error("tag", "message")
@@ -24,7 +22,7 @@ This is a log tool for create info/error/warn/test/debug log.
     loggergo.Debug("tag", "message")
     ```
 
-### logger in file
+### logger in detail
 
 1. Import the logger-go package in your project.
 
@@ -32,29 +30,47 @@ This is a log tool for create info/error/warn/test/debug log.
     import loggergo "github.com/Alonza0314/logger-go"
     ```
 
-2. Declare a logger instance.
+2. Declare the base logger structure.
 
     ```go
-    logger := loggergo.NewFileLogger("logger.log")
+    debugMode := true // if true, log will only output in terminal
+    filePath := "logger.log" // the destination log file
+    logger := NewLogger(filePath, debugMode)
     defer logger.Close()
     ```
 
-    At here, you can use the `WithFlag`, `WithPerm` and `WithColor` to set the flag and permission of the file.
-
-    Example:
+3. Set the log level you want. You can call the util package for pre-declared const log level string.
 
     ```go
-    logger := loggergo.NewFileLogger("logger.log", loggergo.WithFlag(os.O_APPEND|os.O_CREATE|os.O_WRONLY), loggergo.WithPerm(os.FileMode(0644)), loggergo.WithColor(true))
+    // valid levels: error, warn, info, debug, trace, test
+    logger.Setlevel(util.LEVEL_STRING_INFO )
     ```
 
-3. Use the logger in your project.
+4. Set the target tag or tags, this will return an instance for you to use later.
 
     ```go
-    logger.Info("tag", "message")
-    logger.Error("tag", "message")
-    logger.Warn("tag", "message")
-    logger.Test("tag", "message")
-    logger.Debug("tag", "message")
+    demoSingleTag := logger.WithTag("TAG1")
+    demoMultiTags := logger.WithTags("TAG1", "TAG2")
+    ```
+
+5. Use logger instance with "f" and "ln".
+
+- Errorf
+- Warnf
+- Infof
+- Debugf
+- Tracef
+- Testf
+- Errorln
+- Warnln
+- Infoln
+- Debugln
+- Traceln
+- Testln
+
+    ```go
+    demoSingleTag.Infof("%s %s", "msg1", "msg2")
+    demoMultiTags.Infoln("msg1", "msg2")
     ```
 
 ### Executable file
@@ -74,5 +90,6 @@ This is a log tool for create info/error/warn/test/debug log.
 
 > [!NOTE]
 > The executable file is now built for:
+>
 > - Linux-amd64
 > - Darwin-arm64
