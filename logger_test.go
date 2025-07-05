@@ -182,3 +182,14 @@ func TestLoggerOptions(t *testing.T) {
 		})
 	}
 }
+
+func TestLoggerDebugMode(t *testing.T) {
+	logger := loggergo.NewLogger("", true)
+	defer logger.Close()
+
+	if logger == nil {
+		t.Fatal("Failed to create logger")
+	}
+
+	logger.WithTag("DebugMode").Debugln("Debug mode is enabled")
+}
