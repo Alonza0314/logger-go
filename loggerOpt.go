@@ -5,9 +5,8 @@ import "os"
 type Option func(*options)
 
 type options struct {
-	flag  int
-	perm  os.FileMode
-	color bool
+	flag int
+	perm os.FileMode
 }
 
 func WithFlag(flag int) Option {
@@ -19,11 +18,5 @@ func WithFlag(flag int) Option {
 func WithPerm(perm os.FileMode) Option {
 	return func(o *options) {
 		o.perm = perm
-	}
-}
-
-func WithColor(color bool) Option {
-	return func(o *options) {
-		o.color = color
 	}
 }

@@ -1,6 +1,10 @@
 package loggergo
 
-import "os"
+import (
+	"os"
+
+	"github.com/Alonza0314/logger-go/util"
+)
 
 const (
 	COLOR_RED    = "\033[31m"
@@ -10,7 +14,21 @@ const (
 	COLOR_PURPLE = "\033[35m"
 	COLOR_RESET  = "\033[0m"
 
+	LEVEL_STRING_ERROR = util.LEVEL_STRING_ERROR
+	LEVEL_STRING_WARN  = util.LEVEL_STRING_WARN
+	LEVEL_STRING_INFO  = util.LEVEL_STRING_INFO
+	LEVEL_STRING_DEBUG = util.LEVEL_STRING_DEBUG
+	LEVEL_STRING_TRACE = util.LEVEL_STRING_TRACE
+	LEVEL_STRING_TEST  = util.LEVEL_STRING_TEST
+
 	DEFAULT_FLAG  = os.O_APPEND | os.O_CREATE | os.O_WRONLY
 	DEFAULT_PERM  = os.FileMode(0644)
-	DEFAULT_COLOR = false
+	DEFAULT_LEVEL = util.LEVEL_INFO
+
+	TOP_TAG_ERROR = "[EROR]"
+	TOP_TAG_WARN  = "[WARN]"
+	TOP_TAG_INFO  = "[INFO]"
+	TOP_TAG_DEBUG = "[DBUG]"
+	TOP_TAG_TRACE = "[TRCE]"
+	TOP_TAG_TEST  = "[TEST]"
 )
