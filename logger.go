@@ -74,3 +74,7 @@ func (l *Logger) WithTags(tags ...string) model.LoggerInterface {
 		debugMode: l.debugMode,
 	}
 }
+
+func (l *Logger) Close() error {
+	return l.file.Close()
+}

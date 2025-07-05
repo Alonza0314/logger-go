@@ -18,6 +18,7 @@ func TestLoggerCreation(t *testing.T) {
 	if logger == nil {
 		t.Fatal("Failed to create logger")
 	}
+	defer logger.Close()
 
 	logger.SetLevel(util.LEVEL_STRING_DEBUG)
 }
@@ -43,6 +44,7 @@ func TestLoggerTags(t *testing.T) {
 	tmpDir := t.TempDir()
 	logFile := filepath.Join(tmpDir, "tags.log")
 	logger := loggergo.NewLogger(logFile, true)
+	defer logger.Close()
 
 	for _, tc := range testTagCases {
 		t.Run(tc.name, func(t *testing.T) {
@@ -78,6 +80,7 @@ func TestLoggerFormatMethods(t *testing.T) {
 	tmpDir := t.TempDir()
 	logFile := filepath.Join(tmpDir, "format.log")
 	logger := loggergo.NewLogger(logFile, true)
+	defer logger.Close()
 	taggedLogger := logger.WithTag("FormatTest")
 
 	logFuncs := map[string]func(format string, args ...interface{}){
@@ -116,6 +119,7 @@ func TestLoggerLineMethods(t *testing.T) {
 	tmpDir := t.TempDir()
 	logFile := filepath.Join(tmpDir, "line.log")
 	logger := loggergo.NewLogger(logFile, true)
+	defer logger.Close()
 	taggedLogger := logger.WithTag("LineTest")
 
 	logFuncs := map[string]func(args ...interface{}){
@@ -170,6 +174,7 @@ func TestLoggerOptions(t *testing.T) {
 	for _, tc := range testLoggerOptionCases {
 		t.Run(tc.name, func(t *testing.T) {
 			logger := loggergo.NewLogger(logFile, true, tc.options...)
+			defer logger.Close()
 			if logger == nil {
 				t.Fatal("Failed to create logger with custom options")
 			}
