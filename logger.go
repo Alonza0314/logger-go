@@ -27,6 +27,15 @@ func NewLogger(loggerFilePath string, debugMode bool, opts ...Option) *Logger {
 		opt(options)
 	}
 
+	if debugMode {
+		return &Logger{
+			file:      nil,
+			logger:    log.New(os.Stdout, "", log.Ldate|log.Ltime),
+			level:     DEFAULT_LEVEL,
+			debugMode: debugMode,
+		}
+	}
+
 	if !filepath.IsAbs(loggerFilePath) {
 		absPath, err := filepath.Abs(loggerFilePath)
 		if err != nil {
@@ -76,6 +85,9 @@ func (l *Logger) WithTags(tags ...string) model.LoggerInterface {
 }
 
 func (l *Logger) Close() {
+	if l.file == nil {
+		return
+	}
 	if err := l.file.Close(); err != nil {
 		panic(err)
 	}
