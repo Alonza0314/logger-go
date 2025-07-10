@@ -9,7 +9,7 @@ This is a log tool for create error/warn/info/debug/trace/test log.
 1. Import the logger-go package in your project.
 
     ```go
-    import loggergo "github.com/Alonza0314/logger-go"
+    import loggergo "github.com/Alonza0314/logger-go/v2"
     ```
 
 2. Use the logger in your project.
@@ -27,7 +27,7 @@ This is a log tool for create error/warn/info/debug/trace/test log.
 1. Import the logger-go package in your project.
 
     ```go
-    import loggergo "github.com/Alonza0314/logger-go"
+    import loggergo "github.com/Alonza0314/logger-go/v2"
     ```
 
 2. Declare the base logger structure.
