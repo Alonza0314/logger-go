@@ -3,7 +3,7 @@ package util_test
 import (
 	"testing"
 
-	"github.com/Alonza0314/logger-go/util"
+	"github.com/Alonza0314/logger-go/v2/util"
 	"github.com/stretchr/testify/assert"
 )
 

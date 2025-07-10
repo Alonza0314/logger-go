@@ -1,4 +1,4 @@
-module github.com/Alonza0314/logger-go
+module github.com/Alonza0314/logger-go/v2
 
 go 1.24.2
 

@@ -3,7 +3,7 @@ package loggergo
 import (
 	"os"
 
-	"github.com/Alonza0314/logger-go/util"
+	"github.com/Alonza0314/logger-go/v2/util"
 )
 
 const (

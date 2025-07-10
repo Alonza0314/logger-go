@@ -10,7 +10,7 @@ make_main() {
     touch ./main/main.go
 
     echo "package main" > ./main/main.go
-    echo "import \"github.com/Alonza0314/logger-go/cmd\"" >> ./main/main.go
+    echo "import \"github.com/Alonza0314/logger-go/v2/cmd\"" >> ./main/main.go
     echo "func main() {" >> ./main/main.go
     echo "	cmd.Execute()" >> ./main/main.go
     echo "}" >> ./main/main.go

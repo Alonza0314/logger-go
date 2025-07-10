@@ -3,7 +3,7 @@ package loggergo_test
 import (
 	"testing"
 
-	loggergo "github.com/Alonza0314/logger-go"
+	loggergo "github.com/Alonza0314/logger-go/v2"
 )
 
 var testDirectLoggerCases = []struct {
