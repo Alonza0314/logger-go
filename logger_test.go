@@ -5,9 +5,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	loggergo "github.com/Alonza0314/logger-go"
-	"github.com/Alonza0314/logger-go/model"
-	"github.com/Alonza0314/logger-go/util"
+	loggergo "github.com/Alonza0314/logger-go/v2"
+	"github.com/Alonza0314/logger-go/v2/model"
+	"github.com/Alonza0314/logger-go/v2/util"
 )
 
 func TestLoggerCreation(t *testing.T) {

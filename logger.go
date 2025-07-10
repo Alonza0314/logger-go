@@ -6,8 +6,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/Alonza0314/logger-go/model"
-	"github.com/Alonza0314/logger-go/util"
+	"github.com/Alonza0314/logger-go/v2/model"
+	"github.com/Alonza0314/logger-go/v2/util"
 )
 
 type Logger struct {
