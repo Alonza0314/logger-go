@@ -32,10 +32,10 @@ func (l *LoggerImplementation) Errorf(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -45,10 +45,10 @@ func (l *LoggerImplementation) Warnf(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -58,10 +58,10 @@ func (l *LoggerImplementation) Infof(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -71,10 +71,10 @@ func (l *LoggerImplementation) Debugf(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -84,10 +84,10 @@ func (l *LoggerImplementation) Tracef(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -97,10 +97,10 @@ func (l *LoggerImplementation) Testf(format string, args ...interface{}) {
 	}
 
 	msg := fmt.Sprintf(format, args...)
-	log.Printf("%s%s%s %s%s %s\n", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s\n", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s\n", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s\n", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -110,10 +110,10 @@ func (l *LoggerImplementation) Errorln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_RED, TOP_TAG_ERROR, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -123,10 +123,10 @@ func (l *LoggerImplementation) Warnln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_YELLOW, TOP_TAG_WARN, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -136,10 +136,10 @@ func (l *LoggerImplementation) Infoln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_BLUE, TOP_TAG_INFO, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -149,10 +149,10 @@ func (l *LoggerImplementation) Debugln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_PURPLE, TOP_TAG_DEBUG, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -162,10 +162,10 @@ func (l *LoggerImplementation) Traceln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_RESET, TOP_TAG_TRACE, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
 
@@ -175,9 +175,9 @@ func (l *LoggerImplementation) Testln(args ...interface{}) {
 	}
 
 	msg := fmt.Sprintln(args...)
-	log.Printf("%s%s%s %s%s %s", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+	log.Printf("%s%s%s%s%s %s", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 
 	if !l.debugMode {
-		l.logger.Printf("%s%s%s %s%s %s", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
+		l.logger.Printf("%s%s%s%s%s %s", COLOR_GREEN, TOP_TAG_TEST, COLOR_BLUE, l.getTags(), COLOR_RESET, msg)
 	}
 }
