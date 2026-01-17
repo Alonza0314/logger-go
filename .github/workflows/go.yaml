@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        go: [ '1.24' ]
+        go: [ '1.25.5' ]
     steps:
     - uses: actions/checkout@v4
 
@@ -24,6 +24,3 @@ jobs:
 
     - name: Test
       run: go test -v ./...
-
-    - name: Make
-      run: make

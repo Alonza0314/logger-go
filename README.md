@@ -43,7 +43,7 @@ This is a log tool for create error/warn/info/debug/trace/test log.
 
     ```go
     // valid levels: error, warn, info, debug, trace, test
-    logger.Setlevel(util.LEVEL_STRING_INFO )
+    logger.Setlevel(util.LEVEL_STRING_INFO)
     ```
 
 4. Set the target tag or tags, this will return an instance for you to use later.
@@ -72,24 +72,3 @@ This is a log tool for create error/warn/info/debug/trace/test log.
     demoSingleTag.Infof("%s %s", "msg1", "msg2")
     demoMultiTags.Infoln("msg1", "msg2")
     ```
-
-### Executable file
-
-1. Download the executable file from [release](https://github.com/Alonza0314/logger-go/releases).
-
-2. Use the executable file directly.
-
-    Example:
-
-    ```bash
-    ./logger-go info [tag] [message]
-    ./logger-go error [tag] [message]
-    ./logger-go warn [tag] [message]
-    ./logger-go test [tag] [message]
-    ```
-
-> [!NOTE]
-> The executable file is now built for:
->
-> - Linux-amd64
-> - Darwin-arm64
