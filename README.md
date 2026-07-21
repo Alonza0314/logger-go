@@ -72,3 +72,28 @@ This is a log tool for create error/warn/info/debug/trace/test log.
     demoSingleTag.Infof("%s %s", "msg1", "msg2")
     demoMultiTags.Infoln("msg1", "msg2")
     ```
+
+## Gin Engine
+
+Gin writes its own request logging (and panic/error output from `Recovery()`) straight to `os.Stdout`, via the package-level `gin.DefaultWriter` / `gin.DefaultErrorWriter` variables. `loggergo.NewGinWriter` adapts any tagged logger instance into an `io.Writer`, so you can route that output through logger-go instead -- same tags, same file, same level handling as the rest of your app. This does not require importing `github.com/gin-gonic/gin` in your own code beyond what you already use to build the engine.
+
+1. Import the logger-go package in your project.
+
+    ```go
+    import loggergo "github.com/Alonza0314/logger-go/v2"
+    ```
+
+2. Create (or reuse) a tagged logger instance for gin's own output.
+
+    ```go
+    ginLog := logger.WithTag("API")
+    ```
+
+3. Wrap it with `NewGinWriter` and assign it to `gin.DefaultWriter` (and `gin.DefaultErrorWriter`, if you also want panic/error output routed the same way) **before** the `gin.Engine` is constructed.
+
+    ```go
+    gin.DefaultWriter = loggergo.NewGinWriter(ginLog)
+    gin.DefaultErrorWriter = loggergo.NewGinWriter(ginLog)
+
+    router := gin.Default() // or gin.New() -- must come after the two lines above
+    ```
